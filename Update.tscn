@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://BBSesque.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
+
+[node name="UpdateLabel" type="RichTextLabel"]
+margin_right = 247.0
+margin_bottom = 19.0
+custom_colors/default_color = Color( 0.941176, 0.941176, 0.933333, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+fit_content_height = true

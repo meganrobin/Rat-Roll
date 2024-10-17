@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Output.tscn" type="PackedScene" id=1]
+[ext_resource path="res://StoryClass.gd" type="Script" id=2]
+[ext_resource path="res://ModulateShader.gdshader" type="Shader" id=3]
+[ext_resource path="res://art/background_story.png" type="Texture" id=4]
+[ext_resource path="res://art/mini_scenes/mini_scene_glove.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/old_color1 = Color( 0.980392, 0.980392, 0.94902, 1 )
+shader_param/old_color2 = Color( 0.890196, 0.886275, 0.862745, 1 )
+shader_param/old_color3 = Color( 0.619608, 0.596078, 0.541176, 1 )
+shader_param/modulate = Color( 0.753906, 0.144302, 0.144302, 1 )
+
+[node name="StoryClass" type="Control"]
+script = ExtResource( 2 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 480, 360 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="MiniScene" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 480, 297 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
+[node name="Spot1" type="Sprite" parent="."]
+position = Vector2( 480, 297 )
+scale = Vector2( 4, 4 )
+
+[node name="Spot2" type="Sprite" parent="."]
+position = Vector2( 480, 297 )
+scale = Vector2( 4, 4 )
+
+[node name="Output" parent="." instance=ExtResource( 1 )]
+margin_left = 236.0
+margin_top = 445.0
+margin_right = 733.0
+margin_bottom = 582.0
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="meta_clicked" from="Output" to="." method="_on_Output_meta_clicked"]

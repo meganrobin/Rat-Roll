@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2021-02-23_-_Fantasy_Ambience_-_David_Fesliyan.mp3-920d99b55e6b1d4ccc63dce5221380d7.mp3str"
+
+[deps]
+
+source_file="res://2021-02-23_-_Fantasy_Ambience_-_David_Fesliyan.mp3"
+dest_files=[ "res://.import/2021-02-23_-_Fantasy_Ambience_-_David_Fesliyan.mp3-920d99b55e6b1d4ccc63dce5221380d7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

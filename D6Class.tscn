@@ -1,0 +1,181 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://D6Class.gd" type="Script" id=1]
+[ext_resource path="res://art/dice/D6.png" type="Texture" id=2]
+[ext_resource path="res://art/dice/D6_selected.png" type="Texture" id=3]
+[ext_resource path="res://art/dice/dice_numbers.png" type="Texture" id=4]
+[ext_resource path="res://art/dice/D6_disabled.png" type="Texture" id=5]
+[ext_resource path="res://art/dice/dice_popup.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=18]
+resource_name = "Flash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("SelectedHighlight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Result"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3.5, 3.5 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Number:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3.5, 3.5 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Roll"
+length = 0.66
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Number:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Tween")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.625 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "start"
+}, {
+"args": [  ],
+"method": "stop_all"
+} ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Select"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Number:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -2 ) ]
+}
+
+[node name="D6Class" type="Control"]
+anchor_right = 0.04
+anchor_bottom = 0.044
+margin_right = -0.400002
+margin_bottom = 6.32
+rect_min_size = Vector2( 38, 38 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 19, 19 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Number" type="Sprite" parent="."]
+position = Vector2( 19, 18 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+hframes = 5
+vframes = 4
+
+[node name="DisabledLayer" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.666667 )
+position = Vector2( 19, 19 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="SelectedHighlight" type="Sprite" parent="."]
+visible = false
+position = Vector2( 19, 19 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="DiceInfo" type="Sprite" parent="."]
+visible = false
+position = Vector2( 19, -31 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flash = SubResource( 18 )
+anims/Result = SubResource( 17 )
+anims/Roll = SubResource( 14 )
+anims/Select = SubResource( 16 )
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true
+
+[connection signal="gui_input" from="." to="." method="_on_D6Class_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_D6Class_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_D6Class_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
